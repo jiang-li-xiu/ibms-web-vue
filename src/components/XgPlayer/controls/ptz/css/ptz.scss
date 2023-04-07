@@ -1,0 +1,58 @@
+.yt-box {
+  background-color: rgba(200, 200, 200, 0.5);
+  position: absolute;
+  bottom: 100%;
+  z-index: 9999;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.up-left-right-down-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  // color: #777;
+}
+
+.left-right-box {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 1.5em;
+}
+
+.left {
+  margin-right: 1em;
+}
+
+.right {
+  margin-left: 1em;
+  cursor: pointer;
+}
+
+.up {
+  cursor: pointer;
+}
+
+.down {
+  cursor: pointer;
+}
+
+.zoom-box {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1.5em;
+}
+
+.enla {
+  margin-right: 0.5em;
+  cursor: pointer;
+}
+
+.shrink {
+  margin-left: 0.5em;
+  cursor: pointer;
+}

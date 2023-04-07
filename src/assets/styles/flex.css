@@ -1,0 +1,236 @@
+/* flex布局(start) */
+
+/* 1. flex 单个样式 (start) */
+
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-column-reverse {
+  flex-direction: column-reverse;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
+}
+
+.flex-3 {
+  flex: 3;
+}
+
+.flex-4 {
+  flex: 4;
+}
+
+.flex-5 {
+  flex: 5;
+}
+
+.flex-6 {
+  flex: 6;
+}
+/* flex 单个样式 (end) */
+
+/* 2. flex布局 (start) */
+
+/* 2.1. 横排 x 轴 (statr) */
+
+/* 垂直水平居中 */
+
+.flex-row-cc {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 垂直两端对齐，水平居中 */
+
+.flex-row-csb {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 垂直两端对齐，水平方向平均分隔（中间间隔的宽度为两边间隔宽度的2倍） */
+
+.flex-row-csa {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* 垂直两端对齐，水平方向平均分隔（间隔距离相等） */
+
+.flex-row-cse {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.flex-row-cs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.flex-row-cfe {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.flex-row-ce {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* 横排 (end) */
+
+/* 2.2. 竖排 y轴 (statr) */
+
+.flex-column-cc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 垂直两端对齐，水平居中 */
+
+.flex-column-csb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 垂直两端对齐，水平方向平均分隔（中间间隔的宽度为两边间隔宽度的2倍） */
+
+.flex-column-csa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* 垂直两端对齐，水平方向平均分隔（间隔距离相等） */
+
+.flex-column-cse {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+/* 竖排 (end) */
+
+/* flex布局 (end) */
+
+/* position (start) */
+
+.fixed-top {
+  z-index: 3;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+/* position(end) */
+
+/* 宽度布局(start) */
+
+.width-65 {
+  width: 65%;
+}
+
+.width-70 {
+  width: 70%;
+}
+
+.width-75 {
+  width: 75%;
+}
+
+.width-80 {
+  width: 80%;
+}
+
+input {
+  border-style: none;
+  background-color: #fff;
+}

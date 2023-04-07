@@ -1,0 +1,16 @@
+{
+  "id": "2734513",
+  "name": "Aiconfont",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "10885275",
+      "name": "禁用",
+      "font_class": "jinyong",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    }
+  ]
+}

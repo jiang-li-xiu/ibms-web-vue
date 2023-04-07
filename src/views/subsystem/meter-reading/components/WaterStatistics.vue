@@ -1,0 +1,194 @@
+<!--
+ * @Descripttion: 
+ * @Author: ZhouFanSong
+ * @Date: 2021-09-10 16:11:32
+ * @LastEditors: ZhouFanSong
+ * @LastEditTime: 2021-09-27 16:30:04
+-->
+<template>
+  <div>
+    <div class="assembly-head">
+      <span class="assembly-head-title">{{ title }}</span>
+      <div>
+        <el-date-picker
+          size="mini"
+          v-model="date"
+          type="daterange"
+          align="right"
+          unlink-panels
+          range-separator="至"
+          start-placeholder="开始日期"
+          end-placeholder="结束日期"
+          :picker-options="pickerOptions"
+          format="yyyy 年 MM 月 dd 日"
+          value-format="yyyy-MM-dd"
+          @change="selectDateChange"
+          class="assembly-header-time"
+        >
+        </el-date-picker>
+        <el-radio-group
+          size="mini"
+          v-model="queryParams.queryMode"
+          @change="dateChange"
+        >
+          <el-radio-button label="Week">周</el-radio-button>
+          <el-radio-button label="Month">月</el-radio-button>
+        </el-radio-group>
+      </div>
+    </div>
+    <hr class="assembly-hr" />
+    <linechart-water
+      :chartsData="dataList"
+      :className="className"
+      :width="width"
+      :height="height"
+      ref="reference"
+    ></linechart-water>
+  </div>
+</template>
+
+<script>
+import { getBrokenLineDate } from "@/api/subsystem/meter-reading/pricing-management.js";
+import LinechartWater from "@/components/Echarts/LineChartWater";
+export default {
+  props: {
+    title: {
+      type: String,
+      default: "图表",
+    },
+    className: {
+      type: String,
+      default: "chart",
+    },
+    width: {
+      type: String,
+      default: "100%",
+    },
+    height: {
+      type: String,
+      default: "35vh",
+    },
+  },
+  data() {
+    return {
+      date: [], //时间数组
+      pickerOptions: {
+        shortcuts: [
+          {
+            text: "最近一周",
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+              picker.$emit("pick", [start, end]);
+            },
+          },
+          {
+            text: "最近一个月",
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+              picker.$emit("pick", [start, end]);
+            },
+          },
+          {
+            text: "最近三个月",
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+              picker.$emit("pick", [start, end]);
+            },
+          },
+          {
+            text: "最近半年",
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 180);
+              picker.$emit("pick", [start, end]);
+            },
+          },
+        ],
+      },
+      dataList: {
+        xLabel: [],
+        colorList: ["#9E87FF", "#73DDFF", "#fe9a8b", "#F56948", "#9E87FF"],
+        series: [],
+        name: "",
+        title: "",
+        nameList: [],
+        yAxisName: "", //Y轴name
+      }, //用水统计, //用水分类统计
+      queryParams: {
+        beginTime: "", //开始时间
+        endTime: "", //结束时间
+        meterType: "", //仪表类型
+        queryMode: "Month", //查询方式 (周=Week、月份=Month、季度=Quarter、年=Year)
+      },
+    };
+  },
+  components: { LinechartWater },
+  methods: {
+    //获取选择时间
+    selectDateChange(e) {
+      this.queryParams.queryMode = "";
+      this.queryParams.beginTime = e[0];
+      this.queryParams.endTime = e[1];
+      this.getList();
+    },
+    //获取选项点击
+    dateChange(e) {
+      this.date = "";
+      this.queryParams.beginTime = "";
+      this.queryParams.endTime = "";
+      this.getList();
+    },
+    //折线图
+    getList(type) {
+      if (type) {
+        this.queryParams.meterType = type;
+        this.queryParams.meterType == "远程抄表系统-电表"
+          ? (this.dataList.yAxisName = "kwh")
+          : (this.dataList.yAxisName = "m³");
+      }
+      getBrokenLineDate(this.queryParams).then((response) => {
+        // let DataList = response
+        // let DataListTime = []
+        // let DataSum = []
+        // DataList.map((item) => {
+        //   Data
+        // })
+        this.dataList.xLabel = response.data.times;
+        this.dataList.series = response.data.values;
+        this.dataList.nameList = response.data.name;
+        this.dataList.name = this.title + "图表";
+      });
+    },
+  },
+};
+</script>
+<style scoped lang='scss' >
+.assembly-head {
+  height: 50px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20px;
+}
+.assembly-hr {
+  margin: 0;
+  background-color: rgb(0, 0, 0);
+  border: none;
+  height: 1px;
+  opacity: 0.2;
+}
+.assembly-head-title {
+  font-weight: 600;
+}
+.assembly-header-time {
+  margin-right: 20px;
+  max-width: 300px;
+}
+</style>

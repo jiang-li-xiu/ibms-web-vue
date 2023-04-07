@@ -1,0 +1,22 @@
+# 变量
+variables:
+  SCAN_DIR: "src" # 代码分析路径
+
+# 状态
+stages:
+  - code_analysis
+
+# 代码分析
+code_analysis:
+  stage: code_analysis
+  only:
+    refs:
+      - dev
+  script:
+    - sonar-scanner -v
+    - echo $CI_PROJECT_NAME
+    - echo $CI_PROJECT_DIR/
+    - "sonar-scanner \
+      -Dsonar.projectName=${CI_PROJECT_NAME} \
+      -Dsonar.projectKey=$CI_PROJECT_NAME \
+      -Dsonar.sources=$CI_PROJECT_DIR/$SCAN_DIR"

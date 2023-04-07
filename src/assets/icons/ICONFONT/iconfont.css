@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2734513 */
+  src: url('iconfont.woff2?t=1628576559135') format('woff2'),
+       url('iconfont.woff?t=1628576559135') format('woff'),
+       url('iconfont.ttf?t=1628576559135') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 20px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-disable:before {
+  content: "\e60f";
+}

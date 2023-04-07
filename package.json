@@ -1,0 +1,125 @@
+{
+    "name": "lst",
+    "version": "3.0.0",
+    "description": "智能化集成平台",
+    "author": "lst",
+    "license": "MIT",
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build:prod": "vue-cli-service build",
+        "build:stage": "vue-cli-service build --mode staging",
+        "build:jxlc": "vue-cli-service build --mode jxlc",
+        "preview": "node build/index.js --preview",
+        "lint": "eslint --ext .js,.vue src"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "src/**/*.{js,vue}": [
+            "eslint --fix",
+            "git add"
+        ]
+    },
+    "keywords": [
+        "vue",
+        "admin",
+        "dashboard",
+        "element-ui",
+        "boilerplate",
+        "admin-template",
+        "management-system"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://gitee.com/y_project/RuoYi-Cloud.git"
+    },
+    "dependencies": {
+        "@jiaminghi/data-view": "^2.10.0",
+        "@riophae/vue-treeselect": "0.4.0",
+        "amqplib": "^0.8.0",
+        "axios": "^0.21.1",
+        "babel-polyfill": "^6.26.0",
+        "bulma": "^0.9.3",
+        "clipboard": "2.0.6",
+        "core-js": "3.8.1",
+        "d3-array": "^3.0.1",
+        "d3-axis": "^3.0.0",
+        "d3-brush": "^3.0.0",
+        "d3-scale": "^4.0.0",
+        "d3-selection": "^3.0.0",
+        "d3-shape": "^3.0.1",
+        "d3-time": "^3.0.0",
+        "dedent": "^0.7.0",
+        "echarts": "^5.2.2",
+        "element-ui": "^2.15.5",
+        "event-source-polyfill": "^1.0.24",
+        "file-saver": "2.0.4",
+        "fuse.js": "6.4.3",
+        "highlight": "^0.2.4",
+        "highlight.js": "^11.3.1",
+        "humble-utils": "^0.4.6",
+        "jquery": "^1.12.4",
+        "js-beautify": "1.13.0",
+        "js-cookie": "2.2.1",
+        "jsencrypt": "3.0.0-rc.1",
+        "mavon-editor": "^2.9.1",
+        "moment": "^2.29.1",
+        "nprogress": "0.2.0",
+        "pretty-bytes": "^5.6.0",
+        "print-js": "^1.6.0",
+        "quill": "1.3.7",
+        "screenfull": "5.0.2",
+        "sockjs-client": "^1.5.1",
+        "sortablejs": "1.10.2",
+        "stompjs": "^2.3.3",
+        "vue": "2.6.12",
+        "vue-codemirror": "^4.0.6",
+        "vue-count-to": "1.0.13",
+        "vue-cropper": "0.5.5",
+        "vue-i18n": "^8.24.5",
+        "vue-json-viewer": "^2.2.19",
+        "vue-json-views": "^1.3.0",
+        "vue-loading-easy": "^1.0.0",
+        "vue-meta": "^2.4.0",
+        "vue-router": "3.4.9",
+        "vue-unity-webgl": "^1.2.0",
+        "vuedraggable": "2.24.3",
+        "vuex": "3.6.0",
+        "wangeditor": "^4.7.6",
+        "websocket": "^1.0.34",
+        "xgplayer": "^2.24.3",
+        "xgplayer-flv": "^2.4.25",
+        "xgplayer-flv.js": "^2.3.0",
+        "xgplayer-hls": "^2.4.25",
+        "xgplayer-hls.js": "^2.4.2",
+        "yorkie": "^2.0.0"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "4.4.6",
+        "@vue/cli-plugin-eslint": "4.4.6",
+        "@vue/cli-service": "4.4.6",
+        "babel-eslint": "10.1.0",
+        "chalk": "4.1.0",
+        "connect": "3.6.6",
+        "eslint": "^7.32.0",
+        "eslint-plugin-vue": "7.2.0",
+        "lint-staged": "10.5.3",
+        "runjs": "4.4.2",
+        "sass": "1.32.0",
+        "sass-loader": "10.1.0",
+        "script-ext-html-webpack-plugin": "2.1.5",
+        "svg-sprite-loader": "5.1.1",
+        "vue-template-compiler": "2.6.12"
+    },
+    "engines": {
+        "node": ">=8.9",
+        "npm": ">= 3.0.0"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions"
+    ]
+}
